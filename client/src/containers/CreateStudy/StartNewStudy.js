@@ -68,6 +68,7 @@ class StartnewStudy extends React.Component{
                 <input id="studyoutput" onChange={this.onstudyOutputChange} ></input>
                 <p>Ex: Impact of "high vegetable intake" on "sleep"</p>
                 <button type="submit" onClick={()=>this.updateDisplay("duration")}>Next</button>
+                <label> {this.state.userid} </label>
                 </div>)                
             case "duration":
                 return (<div>
@@ -82,6 +83,7 @@ class StartnewStudy extends React.Component{
                     </select>
                     <p>{"\n"}</p>
                     <button type="submit" onClick={()=>this.updateDisplay("showHypothesis")}>Next</button>
+                    <label> {this.state.userid} </label>
                 </div>)
             case "showHypothesis":
                 return (
@@ -90,6 +92,7 @@ class StartnewStudy extends React.Component{
                         <p>Your Hypthosis is {this.state.studyinput} has impact on {this.state.studyoutput}</p>
                         <button style={{margin:"20px"}} type="submit" onClick={()=>this.confirmStudysubmit()}>Yes, Start My Study</button>
                         <button style={{margin:"20px"}} type="cancel" onClick={()=>this.CancelStudy()}>Cancel, I changed My mind</button>
+                        <label> {this.state.userid} </label>
                     </div>
                 )
             case "studyCreated":
@@ -101,6 +104,7 @@ class StartnewStudy extends React.Component{
                         <p>For better analysis maintain High value of "{this.state.studyinput}" on below listed days and low on other days.</p>
                         <StudyPlan studyPeriod={this.state.studyduration}/>
                         <button style={{margin:"20px"}} type="cancel" onClick={()=>this.CancelStudy()}>Okay</button>
+                        <label> {this.state.userid} </label>
                     </div>
                 )
             case "studyCanceled":
@@ -109,6 +113,7 @@ class StartnewStudy extends React.Component{
                 return(
                     
                      <Home userid= {this.state.userid} route={this.state.route}/>
+                     
                  )
             default:
             break;             
