@@ -23,7 +23,8 @@ class UserStudies extends React.Component{
             method:'get',
             headers:{'Content-Type':'application/json'}
         })
-        .then(response=> response.json())
+        .then(response=> console.log('RESP: ', response)// response.json()
+        )
         .then(records=> {console.log("records:,", records)
         this.setState({studies: records})}
         ).catch(err => console.log(err))        
