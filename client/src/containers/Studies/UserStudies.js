@@ -19,11 +19,14 @@ class UserStudies extends React.Component{
 
     componentDidMount(){
         console.log("did mount called, user ID: ",this.state.userid )
+
+
+
         fetch('/studies/'+this.state.userid,{
             method:'get',
             headers:{'Content-Type':'application/json'}
         })
-        .then(response=> console.log('RESP: ', response)// response.json()
+        .then(response=>  response.json()
         )
         .then(records=> {console.log("records:,", records)
         this.setState({studies: records})}

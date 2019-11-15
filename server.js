@@ -200,7 +200,7 @@ app.get('/studyDataDates/:id',(req,res) => {
 //get studies for a given userid
 app.get('/studies/:id',(req,res) => {
 
-    const id = req.params.id
+    const id = req.params.id || 1
     db.select('*').from('userstudies').where({user_id: id})
     .then(records =>{
         if(records.length){
