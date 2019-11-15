@@ -11,7 +11,6 @@ import Analysis from './containers/Analysis';
 import Signin from './signin';
 import Register from './register';
 import Navigation from './navigation';
-import 'tachyons';
 import Home from './containers/Home';
 
 class App extends Component {
