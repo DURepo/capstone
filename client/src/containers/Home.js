@@ -24,7 +24,7 @@ class Home extends React.Component {
                 <div>                    
                 <button type="submit" onClick={()=>this.updatemode("viewStudies")}>Select Existing Study</button>
                 <button type="submit" userid={this.state.userid} onClick={()=>this.updatemode("createNewStudy")}>Start a New Study</button>
-                <label>load home return {this.state.userid}</label>
+                
                 </div>
         )
     }
@@ -41,7 +41,7 @@ class Home extends React.Component {
                     <button type="submit" onClick={()=>this.updatemode("viewStudies")}>Select Existing Study</button>
                     <p>{"\n"}</p>
                     <button type="submit" userid={this.state.userid} onClick={()=>this.updatemode("createNewStudy")}>Start a New Study</button>
-                    <label>DIV return {this.state.userid}</label>
+                    
                 </div>
                 )
             }
@@ -58,7 +58,7 @@ class Home extends React.Component {
                 //view study
                 return(<div>
                     <UserStudies userid={this.state.userid} />
-                    <label>else return {this.state.userid}</label>
+                    
                 </div>)
             }
         
