@@ -1,0 +1,88 @@
+use selfstudydb;
+
+drop table if exists maxinputRecomendedDays;
+drop table if exists studyobservation;
+drop table if exists userstudies;
+
+
+CREATE TABLE users (
+ user_id INT Auto_Increment,
+ name Varchar(255) NOT NULL,
+ email Varchar(255) NOT NULL,
+ password Varchar(255) NOT NULL,
+Primary Key (user_id)
+);
+
+create table userstudies(
+study_id INT Auto_increment Primary Key,
+user_id INT not null,
+observed_input Varchar(50) not NULL,
+observed_output Varchar(50) not NULL,
+start_date DATE,
+studyPeriodInDays INT,
+isDataComplete Bool Default false,
+isAnalysisComplete Bool Default false,
+result Varchar(50),
+Foreign Key fk_usr(user_id) References users(user_id)
+);
+
+create table studyobservation (
+    id INT Auto_Increment Primary Key,
+    study_id INT not NULL,
+    date DATE,
+    input_data INT,
+    output_data INT,
+    Foreign Key fk_stdy(study_id) References userstudies(study_id)
+    
+);
+
+
+CREATE TABLE maxinputRecomendedDays(
+    id INT Auto_Increment Primary Key,
+    study_id INT not NULL,
+    date DATE,
+    Foreign Key fk_stdy1(study_id) References userstudies(study_id)
+)
+
+-----------------------------old
+
+create table studies(
+study_id INT Auto_Increment primary key,
+name Varchar(50),
+description Varchar(255)
+)
+
+create table userstudies(
+userStudy_id INT Auto_increment Primary Key,
+study_id INT not null,
+user_id INT not null,
+start_date DATE,
+studyPeriodInDays INT,
+Foreign Key fk_study(study_id) References studies(study_id),
+Foreign Key fk_user(user_id) References users(user_id)
+)
+
+create table studyDataRecords(
+record_id INT Auto_increment Primary Key,
+userStudy_id INT not null,
+date DATE,
+inputSample INT,
+outputSample INT,
+Foreign Key fk_userstudy(userStudy_id) References userstudies(userStudy_id)
+)
+
+create table result(
+result_id INT Auto_increment Primary Key,
+description Varchar(100)
+)
+
+
+create table studyResults(
+id INT Auto_Increment Primary Key,
+result_id INT Not Null,
+Foreign Key fk_result(result_id) References result(result_id)
+)
+
+
+
+
