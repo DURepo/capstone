@@ -6,16 +6,16 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-// const db = knex({
-//     client: 'mysql',
-//     connection: {
-//       host : 'localhost',
-//       user : 'root',
-//       password : 'kec123!',
-//       database : 'selfstudydb'
-//     },
-//     useNullAsDefault: true
-//   });
+db = knex({
+    client: 'mysql',
+    connection: {
+      host : 'sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+      user : 'qzwxax9v8w2bq26w',
+      password : 'e35zm45333queeo7',
+      database : 'ilopaj0yjw6t99wb'
+    },
+    useNullAsDefault: true
+  });
 
 const app = express();
 app.use(cors());
