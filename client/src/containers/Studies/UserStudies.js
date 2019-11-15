@@ -26,7 +26,7 @@ class UserStudies extends React.Component{
         .then(response=> response.json())
         .then(records=> {console.log("records:,", records)
         this.setState({studies: records})}
-        )        
+        ).catch(err => console.log(err))        
         
     }
 
