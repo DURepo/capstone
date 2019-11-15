@@ -198,9 +198,9 @@ app.get('/studyDataDates/:id',(req,res) => {
 })
 
 //get studies for a given userid
-app.get('/studies/:id',(req,res) => {
+app.get('/studies',(req,res) => {
 
-    const id = req.params.id
+    //const id = req.params.id
 
     return({})
 
