@@ -44,7 +44,7 @@ CREATE TABLE maxinputRecomendedDays(
     Foreign Key fk_stdy1(study_id) References userstudies(study_id)
 )
 
------------------------------old
+-----------------------------old----
 
 create table studies(
 study_id INT Auto_Increment primary key,
