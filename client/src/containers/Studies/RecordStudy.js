@@ -35,27 +35,34 @@ class RecordStudy  extends React.Component{
 
     saveDaybtnclick = () =>{
         console.log("EMPTY ",  this.state.selectedinput.length)
-        if(this.state.displayedDate_id && (this.state.selectedinput!=2 && this.state.selectedinput.length>0 ) && this.state.selectedoutput.length>0){
-        this.setState({ mode:"", displayMessage:"Saved!!!"})
-        
-        fetch('/recordStudy',{
-            method:'put',
-            headers:{'Content-type':'application/json'},
-            body: JSON.stringify({
-                id: this.state.displayedDate_id,
-                input_data: this.state.selectedinput,
-                output_data: this.state.selectedoutput
-            })
+        if(this.state.displayedDate_id && (this.state.selectedinput!=2 && this.state.selectedinput.length>0 ) && this.state.selectedoutput.length>0)
+        {
+            this.setState({ mode:"", displayMessage:"Saved!!!"})
             
-        })
-        .then(response => console.log("RESP:",response))
+            fetch('/recordStudy',{
+                method:'put',
+                headers:{'Content-type':'application/json'},
+                body: JSON.stringify({
+                    id: this.state.displayedDate_id,
+                    input_data: this.state.selectedinput,
+                    output_data: this.state.selectedoutput
+                })
+                
+            })
+            .then(response => {
+                this.setState({selectedoutput: "", selectedinput:""})
+                console.log("RESP:",response)
+                })
         }
         else{
-            this.setState({ mode:"", displayMessage:"Please fill input and output after selecting date!!!"})
+            
+            this.setState({selectedoutput: "", selectedinput:"", mode:"", displayMessage:"Please fill input and output after selecting date!!!"})
             console.log("PROPS:")
             console.log( this.state.selectedinput)
             console.log(this.state.selectedoutput)
             console.log(this.state.displayedDate_id)
+            
+            
         }
 
 
@@ -94,7 +101,7 @@ class RecordStudy  extends React.Component{
                     <p>{"\n"}</p>
                  </div>
                  :<div>
-                     <label style={{"backgroundColor":"grey"}}>{this.state.displayMessage}</label>
+                     <label style={{"backgroundColor":"grey"}}>{this.state.displayMessage }</label>
                  </div>
                 }
                 <div style={{margin:"5px"}}>
