@@ -50,12 +50,12 @@ class register extends React.Component {
             <div>
                 <div style={{display:"flex"}}> 
                 <label style={{margin:"5px 40px 5px 5px"}} >Name</label>
-                <input id="name" type="name" onChange={this.onNameChange} ></input>
+                <input id="name" type="name" onChange={this.onNameChange} placeholder="Your Name..." ></input>
                 </div>
                 <p>{"\n"}</p>
                 <div style={{display:"flex"}}> 
                 <label style={{margin:"5px 45px 5px 5px"}}>Email</label>
-                <input id="email" type="email" onChange={this.onEmailChange} ></input>
+                <input id="email" type="email" onChange={this.onEmailChange} placeholder="abc@gmail.com" ></input>
                 </div>
                 <p>{"\n"}</p>
                 <div style={{display:"flex"}}> 
@@ -63,7 +63,7 @@ class register extends React.Component {
                 <input id="password" type="password" onChange={this.onPasswordChange} ></input>
                 </div>
                 <p>{"\n"}</p>
-                <button type="submit" onClick={this.onSubmitRegister}>Register</button>
+                <button className="all" type="submit" onClick={this.onSubmitRegister}>Register</button>
             </div>
 
         );

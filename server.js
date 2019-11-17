@@ -6,16 +6,30 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-db = knex({
-    client: 'mysql',
-    connection: {
-      host : 'sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-      user : 'qzwxax9v8w2bq26w',
-      password : 'e35zm45333queeo7',
-      database : 'ilopaj0yjw6t99wb'
-    },
-    useNullAsDefault: true
-  });
+if(process.env.NODE_ENV === "production"){
+    db = knex({
+        client: 'mysql',
+        connection: {
+        host : 'sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user : 'qzwxax9v8w2bq26w',
+        password : 'e35zm45333queeo7',
+        database : 'ilopaj0yjw6t99wb'
+        },
+        useNullAsDefault: true
+    });
+}
+else{
+    db = knex({
+        client: 'mysql',
+        connection: {
+          host : 'localhost',
+          user : 'root',
+          password : 'kec123!',
+          database : 'selfstudydb'
+        },
+        useNullAsDefault: true
+      });
+}
 
 const app = express();
 app.use(cors());
@@ -417,16 +431,16 @@ app.post('/register', (req, res) => {
 
 
 if(process.env.NODE_ENV === "production"){
-    db = knex({
-        client: 'mysql',
-        connection: {
-          host : 'sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-          user : 'qzwxax9v8w2bq26w',
-          password : 'e35zm45333queeo7',
-          database : 'ilopaj0yjw6t99wb'
-        },
-        useNullAsDefault: true
-      });
+    // db = knex({
+    //     client: 'mysql',
+    //     connection: {
+    //       host : 'sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    //       user : 'qzwxax9v8w2bq26w',
+    //       password : 'e35zm45333queeo7',
+    //       database : 'ilopaj0yjw6t99wb'
+    //     },
+    //     useNullAsDefault: true
+    //   });
 
     app.use(express.static('client/build'))
 
@@ -435,16 +449,16 @@ if(process.env.NODE_ENV === "production"){
     })
 }
 else{
-    db = knex({
-        client: 'mysql',
-        connection: {
-          host : 'localhost',
-          user : 'root',
-          password : 'kec123!',
-          database : 'selfstudydb'
-        },
-        useNullAsDefault: true
-      });
+    // db = knex({
+    //     client: 'mysql',
+    //     connection: {
+    //       host : 'localhost',
+    //       user : 'root',
+    //       password : 'kec123!',
+    //       database : 'selfstudydb'
+    //     },
+    //     useNullAsDefault: true
+    //   });
 }
 
 const PORT = process.env.PORT ||  4000;

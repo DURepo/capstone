@@ -27,7 +27,7 @@ class RecordAnalyseStudy extends React.Component{
                 
                 {this.state.currentstudy.isDataComplete===1
                 ?<div>
-                <button type="submit" > Perform Analysis</button>
+                <button type="submit" className="all" > Perform Analysis</button>
                 </div>
                 : <div>
                    {/*<RecordDataMaster studyData={this.state.currentstudy} studyDates={this.state.studyDates} />*/}

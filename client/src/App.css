@@ -23,6 +23,66 @@
   color: #61dafb;
 }
 
+p.nav {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  margin: 20px;
+
+}
+
+button.all{
+  
+display: inline-block;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  margin: 5px;
+
+}
+
+input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+select{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

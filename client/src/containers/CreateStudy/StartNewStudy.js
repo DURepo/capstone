@@ -63,11 +63,11 @@ class StartnewStudy extends React.Component{
                 <h1>Create New Study</h1>
                 <label>What do you want to study?</label>
                 <p>Impact of</p>
-                <input id="studyinput" onChange={this.onstudyInputChange} ></input>
+                <input id="studyinput" onChange={this.onstudyInputChange} placeholder="Ex: Vegetable Intake" ></input>
                 <p>on</p>
-                <input id="studyoutput" onChange={this.onstudyOutputChange} ></input>
+                <input id="studyoutput" onChange={this.onstudyOutputChange} placeholder="Ex: sleep" ></input>
                 <p>Ex: Impact of "high vegetable intake" on "sleep"</p>
-                <button type="submit" onClick={()=>this.updateDisplay("duration")}>Next</button>
+                <button type="submit" className="all" onClick={()=>this.updateDisplay("duration")}>Next</button>
                 
                 </div>)                
             case "duration":
@@ -82,7 +82,7 @@ class StartnewStudy extends React.Component{
                         <option value="60">60 Days</option>
                     </select>
                     <p>{"\n"}</p>
-                    <button type="submit" onClick={()=>this.updateDisplay("showHypothesis")}>Next</button>
+                    <button type="submit" className="all" onClick={()=>this.updateDisplay("showHypothesis")}>Next</button>
                     
                 </div>)
             case "showHypothesis":
@@ -90,8 +90,8 @@ class StartnewStudy extends React.Component{
                     <div>
                         <h1>Create New Study</h1>
                         <p>Your Hypthosis is {this.state.studyinput} has impact on {this.state.studyoutput}</p>
-                        <button style={{margin:"20px"}} type="submit" onClick={()=>this.confirmStudysubmit()}>Yes, Start My Study</button>
-                        <button style={{margin:"20px"}} type="cancel" onClick={()=>this.CancelStudy()}>Cancel, I changed My mind</button>
+                        <button  type="submit" className="all" onClick={()=>this.confirmStudysubmit()}>Yes, Start My Study</button>
+                        <button  type="cancel" className="all" onClick={()=>this.CancelStudy()}>Cancel, I changed My mind</button>
                         
                     </div>
                 )
@@ -103,7 +103,7 @@ class StartnewStudy extends React.Component{
                         <p>{"\n"}</p>
                         <p>For better analysis maintain High value of "{this.state.studyinput}" on below listed days and low on other days.</p>
                         <StudyPlan studyPeriod={this.state.studyduration}/>
-                        <button style={{margin:"20px"}} type="cancel" onClick={()=>this.CancelStudy()}>Okay</button>
+                        <button className="all" type="cancel" onClick={()=>this.CancelStudy()}>Okay</button>
                         
                     </div>
                 )

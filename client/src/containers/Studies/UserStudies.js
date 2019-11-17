@@ -104,7 +104,7 @@ class UserStudies extends React.Component{
         
         const tablecomponent = this.state.studies.map((s,i) =>
         {
-            return (<div><button type="submit" key={s.study_id} onClick={()=>this.studyselected(s.study_id)} >Impact of {s.observed_input} on {s.observed_output} for {s.studyPeriodInDays} Days.</button> <p>{"\n"}</p> </div>)
+            return (<div><button className="all" type="submit" key={s.study_id} onClick={()=>this.studyselected(s.study_id)} >Impact of {s.observed_input} on {s.observed_output} for {s.studyPeriodInDays} Days.</button> <p>{"\n"}</p> </div>)
         })
 
         return(
@@ -117,7 +117,7 @@ class UserStudies extends React.Component{
                 : (this.state.route==='analyseStudy'
                    ? <div> 
                        <label>Data is Complete, Run Analysis?</label>
-                       <button type="submit" onClick={()=>this.runAnalysisbtnclick()} > Yes </button>
+                       <button className="all" type="submit" onClick={()=>this.runAnalysisbtnclick()} > Yes </button>
                         </div>
                    : <StudyResult selectedStudy={this.state.selectedStudy} studyResult={this.state.result}/>
                 )

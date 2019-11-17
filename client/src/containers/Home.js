@@ -22,8 +22,8 @@ class Home extends React.Component {
     loadHome = () =>{
         return(
                 <div>                    
-                <button type="submit" onClick={()=>this.updatemode("viewStudies")}>Select Existing Study</button>
-                <button type="submit" userid={this.state.userid} onClick={()=>this.updatemode("createNewStudy")}>Start a New Study</button>
+                <button type="submit" className="all" onClick={()=>this.updatemode("viewStudies")}>Select Existing Study</button>
+                <button type="submit" className="all" userid={this.state.userid} onClick={()=>this.updatemode("createNewStudy")}>Start a New Study</button>
                 
                 </div>
         )
@@ -38,9 +38,9 @@ class Home extends React.Component {
                 // </div>
                 return(            
                 <div>                    
-                    <button type="submit" onClick={()=>this.updatemode("viewStudies")}>Select Existing Study</button>
+                    <button type="submit" className="all" onClick={()=>this.updatemode("viewStudies")}>Select Existing Study</button>
                     <p>{"\n"}</p>
-                    <button type="submit" userid={this.state.userid} onClick={()=>this.updatemode("createNewStudy")}>Start a New Study</button>
+                    <button type="submit" className="all" userid={this.state.userid} onClick={()=>this.updatemode("createNewStudy")}>Start a New Study</button>
                     
                 </div>
                 )

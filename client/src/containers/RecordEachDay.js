@@ -14,7 +14,7 @@ const  RecordEachDay =({dateSelected, onInputSampleChange, onOuputSampleChange})
         </select>
         <p></p>
         <label> On {dateSelected} night, how was your sleep quality? (Rate between 1-100)</label>
-        <input onChange={onOuputSampleChange}></input>
+        <input onChange={onOuputSampleChange} placeholder="value in 1-100"></input>
 
     </div>
            )   

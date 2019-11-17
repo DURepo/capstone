@@ -7,8 +7,8 @@ const ConfirmStudy = ({selectedstudy, ConfirmStudysubmit, CancelStudy})=> {
             <p>Your hypotheses is that if you "{selectedstudy.studydesc}", you will get better sleep.</p>
             {/* <p>And you want to experiment this for "{selectedstudy.studyPeriod}" Days.</p> */}
             <p> Is that correct?</p>
-            <button type="submit" onClick={ConfirmStudysubmit}>Yes Start My Study</button>
-            <button type="cancel" onClick={CancelStudy}>Cancel, I changed My mind</button>
+            <button type="submit" className="all" onClick={ConfirmStudysubmit}>Yes Start My Study</button>
+            <button type="cancel" className="all" onClick={CancelStudy}>Cancel, I changed My mind</button>
         </div>
     )
 

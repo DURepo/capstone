@@ -10,7 +10,7 @@ class RecordStudyData extends Component{
     
     if(studyDates){
     const tablecomponent = studyDates.map((data,i)=>
-        {return ( <button type="submit" value={data.id} key={data.id} style={{margin: "2px"}}
+        {return ( <button className="all" type="submit" value={data.id} key={data.id} style={{margin: "2px"}}
                              onClick={dateSelectedbtnClick}> 
                             {data.date}</button>) })
         return(

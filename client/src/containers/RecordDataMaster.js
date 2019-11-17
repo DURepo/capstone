@@ -82,7 +82,7 @@ class RecordDataMaster extends Component{
                 : <div><RecordEachDay dateSelected={this.state.dateSelected} 
                                 onInputSampleChange={this.onInputSampleChange}
                                 onOuputSampleChange={this.onOuputSampleChange}  />
-                        <button type="submit" onClick={this.onDayRecordSavebtnclick}>Save</button>
+                        <button className="all" type="submit" onClick={this.onDayRecordSavebtnclick}>Save</button>
                         <p>{this.state.Displaymessage}</p>
                     </div>}
             </div>

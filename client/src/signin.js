@@ -66,7 +66,7 @@ class signin extends React.Component {
         <div>
             <div style={{display:"flex"}}> 
             <label style={{margin:"5px 45px 5px 5px"}} >Email</label>            
-            <input id="email" type="email" onChange={this.onEmailChange} ></input>
+            <input id="email" type="email" onChange={this.onEmailChange} placeholder="abc@gmail.com" ></input>
             </div>
             <p>{"\n"}</p>
             
@@ -76,7 +76,7 @@ class signin extends React.Component {
             
             </div>
             <p>{"\n"}</p>
-            <button type="submit" onClick={this.onSubmitSigin}>Sign in</button>
+            <button type="submit" className="all" onClick={this.onSubmitSigin}>Sign in</button>
             <div>
             <p>{"\n"}</p>
             <label style={{margin:"5px", backgroundColor : 'red', display: this.state.ErrorDisplay }} >Please enter Valid Credentials</label>
