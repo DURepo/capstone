@@ -74,8 +74,8 @@ class signin extends React.Component {
     return (
         <div>
             <div style={{display:"flex"}}> 
-            <label style={{margin:"5px 45px 5px 5px"}} >Email</label>            
-            <input id="email" type="email" onChange={this.onEmailChange} placeholder="abc@gmail.com" ></input>
+            <label style={{margin:"5px 5px 5px 5px"}} >Username</label>            
+            <input id="email" type="email" onChange={this.onEmailChange} placeholder="Your Login Name" ></input>
             </div>
             <p>{"\n"}</p>
             
