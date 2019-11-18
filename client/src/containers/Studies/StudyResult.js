@@ -16,17 +16,18 @@ class StudyResult extends React.Component{
         if(this.state.result ==1 ){
             return(
                 <div>
-                    <h4>Your Hypothesis is true. </h4>
-                    <h5>There is a significant impact of "{this.state.study.observed_input}"" on "{this.state.study.observed_output}"</h5>
-                    <p>There is significant relation in the data you provided</p>
+                    <h4>In the study that you did:</h4>
+                    <h5>Based on the data you reported there is a <u>statistically significant impact </u> of "{this.state.study.observed_input}" on "{this.state.study.observed_output}".</h5>
+                    <p style={{fontSize:"15px"}}>Note, there might be other factors as well that are influencing the results.</p>
                 </div>
             )
         }
         else{
             return(
                 <div>
-                         <h4>Your Hypothesis is false</h4>
-                         <h5>There is a Not a significant impact of "{this.state.study.observed_input}"" on "{this.state.study.observed_output}"</h5>
+                         <h4>In the study that you did:</h4>
+                         <h5>Based on the data you reported there is a <u>no statistically significant impact</u> of "{this.state.study.observed_input}"" on "{this.state.study.observed_output}".</h5>
+                         <p style={{fontSize:"15px"}} >Note, there might be other factors as well that are influencing the results.</p>
                 </div>)
         } 
     }
