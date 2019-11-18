@@ -12,6 +12,7 @@ import Signin from './signin';
 import Register from './register';
 import Navigation from './navigation';
 import Home from './containers/Home';
+import ResetPassword from './resetPassword';
 
 class App extends Component {
 
@@ -152,7 +153,7 @@ class App extends Component {
       console.log(this.state.key)
       
     }
-    else if(route=='register' || route==='signin'){
+    else if(route=='register' || route==='signin' || route==='resetpw'){
       this.setState({isSignedIn:false, route:route})
     }
     
@@ -160,7 +161,58 @@ class App extends Component {
 
   
   render() {
-  
+    
+    switch(this.state.route){
+      case "home":
+        return(
+          <div className="App">
+      
+        <header className="App-header">
+        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
+        <img style={{width: "20%", height: "20%"}}  src={logo} className="App-logo" alt="logo" /> 
+        <div>         
+            <Home  key={this.state.key} userid= {this.state.user.id}/>
+            {/* {this.selectedMode()}  */}
+            </div> 
+        </header> 
+        </div>
+        )
+        
+      case "signin":
+      return(
+          <div className="App">
+      
+        <header className="App-header">
+        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
+        <img style={{width: "20%", height: "20%"}}  src={logo} className="App-logo" alt="logo" /> 
+        <Signin loadUser={this.loadUser} onRouteChange = {this.onRouteChange} /> 
+        </header> 
+        </div>
+        )
+        
+      case "register":
+        return(
+          <div className="App">
+      
+        <header className="App-header">
+        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
+        <img style={{width: "20%", height: "20%"}}  src={logo} className="App-logo" alt="logo" /> 
+        <Register loadUser={this.loadUser} onRouteChange = {this.onRouteChange}/> 
+        </header> 
+        </div>
+        )
+      case "resetpw":
+        return(
+          <div className="App">
+      
+        <header className="App-header">
+        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
+        <img style={{width: "20%", height: "20%"}}  src={logo} className="App-logo" alt="logo" /> 
+        <ResetPassword onRouteChange = {this.onRouteChange} ></ResetPassword>
+        </header> 
+        </div>
+        )
+    }
     return (
       <div className="App">
       
@@ -173,11 +225,11 @@ class App extends Component {
             {/* {this.selectedMode()}  */}
             </div>             
             : (this.state.route === 'signin' 
-              ? <Signin loadUser={this.loadUser} onRouteChange = {this.onRouteChange}/> 
+              ? <Signin loadUser={this.loadUser} onRouteChange = {this.onRouteChange} pwsigninmode='true'/> 
               : <Register loadUser={this.loadUser} onRouteChange = {this.onRouteChange}/> 
 
             )
-             }
+            }
                    
           
         </header>

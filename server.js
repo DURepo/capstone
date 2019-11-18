@@ -391,12 +391,43 @@ app.post('/signin', (req, res)=>{
             
         })
         .catch(err =>res.status(400).json('wrong credentials') )
+    
+})
 
+app.post('/savenewpassword', (req, res) => {
+    console.log('BODYYY: ', req.body.email , req.body.password)
+    password=req.body.password;
+    email = req.body.email
+
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+        db('users')
+        .where('email','=',email)
+        .update({
+            password: hash
+        })
+        .then(resp=>{
+            res.json(resp)
+        })
+        .catch(function(err){console.log(err)})
+    })
     
-        
-        
-    
-      
+})
+
+app.get('/checkUserName/:username',(req, res)=>{
+    const email = req.params.username
+
+    db.select('*').from('users')
+        .where('email','=',email)
+        .then(data => {
+            if(data.length>0){
+                res.json(data[0])
+            }
+            else{
+                res.status(400).json('User Name does not exist')
+            }
+        })
+        .catch(err => res.status(400).json('database Error'))
+
 })
 
 app.post('/register', (req, res) => {

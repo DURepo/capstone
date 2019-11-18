@@ -6,7 +6,8 @@ class register extends React.Component {
         this.state= {
             email: '',
             password: '',
-            name:''
+            name:'',
+            ErrorDisplay : 'None'
         }
     }
 
@@ -24,23 +25,28 @@ class register extends React.Component {
 
     onSubmitRegister = () => {
            
-
-        fetch('/register', {
-            method:'post',
-            headers:{'content-Type': 'application/json'},
-            body:JSON.stringify({
-                email: this.state.email,
-               password:  this.state.password,
-               name: this.state.name
+        if(this.state.email.length>0 && this.state.password.length>0 && this.state.name.length>0){
+            fetch('/register', {
+                method:'post',
+                headers:{'content-Type': 'application/json'},
+                body:JSON.stringify({
+                    email: this.state.email,
+                   password:  this.state.password,
+                   name: this.state.name
+                })
             })
-        })
-        .then(response => response.json())
-        .then(user=>{
-            this.props.loadUser(user)
-            this.props.onRouteChange('home');
-                   
-            
-        })       
+            .then(response => response.json())
+            .then(user=>{
+                this.props.loadUser(user)
+                this.props.onRouteChange('signin');
+                       
+                
+            })
+        }
+        else{
+            this.setState({ErrorDisplay:'inline'})
+        }
+               
         
     }
 
@@ -49,13 +55,13 @@ class register extends React.Component {
         return(
             <div>
                 <div style={{display:"flex"}}> 
-                <label style={{margin:"5px 40px 5px 5px"}} >Name</label>
-                <input id="name" type="name" onChange={this.onNameChange} placeholder="Your Name..." ></input>
+                <label style={{margin:"5px 46px 5px 5px"}} >Name</label>
+                <input id="name" type="text" onChange={this.onNameChange} placeholder="Your Full Name..." ></input>
                 </div>
                 <p>{"\n"}</p>
                 <div style={{display:"flex"}}> 
-                <label style={{margin:"5px 45px 5px 5px"}}>Email</label>
-                <input id="email" type="email" onChange={this.onEmailChange} placeholder="abc@gmail.com" ></input>
+                <label style={{margin:"5px 5px 5px 5px"}}>Username</label>
+                <input id="email" type="text" onChange={this.onEmailChange} placeholder="Your Login Name" ></input>
                 </div>
                 <p>{"\n"}</p>
                 <div style={{display:"flex"}}> 
@@ -64,6 +70,10 @@ class register extends React.Component {
                 </div>
                 <p>{"\n"}</p>
                 <button className="all" type="submit" onClick={this.onSubmitRegister}>Register</button>
+                <div>
+                <p>{"\n"}</p>
+                <label style={{margin:"5px", backgroundColor : 'red', display: this.state.ErrorDisplay }} >Please fill all details</label>
+                </div>
             </div>
 
         );

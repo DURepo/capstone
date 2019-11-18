@@ -18,46 +18,55 @@ class signin extends React.Component {
     }
 
     onSubmitSigin = () => {
-           
-
-        fetch('/signin', {
-            method:'post',
-            headers:{'content-Type': 'application/json'},
-            body:JSON.stringify({
-                email: this.state.signinEmail,
-               password:  this.state.signinPassword
-            })
-        })
-        .then(response => 
-            
-            {if(!(response.status === 400)){
-                console.log('RESPONSE: ', response)
-                response.json()
-                .then(user=>{  
-                    console.log('USER:', user)          
-                    if(user){
-                    this.props.loadUser(user);
-                    this.props.onRouteChange('home');
-                     
-                    }
-                    else{
-                        console.log("failsigin")
-        
-                    }           
-                    
+           if(this.state.signinEmail.length>0 &&  this.state.signinPassword >0){
+            fetch('/signin', {
+                method:'post',
+                headers:{'content-Type': 'application/json'},
+                body:JSON.stringify({
+                    email: this.state.signinEmail,
+                   password:  this.state.signinPassword
                 })
+            })
+            .then(response => 
                 
-            }   
-            else{
-                console.log('wrong response: ', response)
-                this.setState({ErrorDisplay:'inline'})
-            }
-            }      
-            //response.json()
-            )       
+                {if(!(response.status === 400)){
+                    console.log('RESPONSE: ', response)
+                    response.json()
+                    .then(user=>{  
+                        console.log('USER:', user)          
+                        if(user){
+                        this.props.loadUser(user);
+                        this.props.onRouteChange('home');
+                         
+                        }
+                        else{
+                            console.log("failsigin")
+            
+                        }           
+                        
+                    })
+                    
+                }   
+                else{
+                    console.log('wrong response: ', response)
+                    this.setState({ErrorDisplay:'inline'})
+                }
+                }      
+                //response.json()
+                )
+           }
+           else{
+            this.setState({ErrorDisplay:'inline'})
+           }
+               
        
         
     }
+
+    onPasswordResetClick = () =>{
+        this.props.onRouteChange('resetpw');
+    }
+
     render(){
         const {onRouteChange} = this.props
 
@@ -80,6 +89,10 @@ class signin extends React.Component {
             <div>
             <p>{"\n"}</p>
             <label style={{margin:"5px", backgroundColor : 'red', display: this.state.ErrorDisplay }} >Please enter Valid Credentials</label>
+            </div>
+            <div>
+            <p>{"\n"}</p>
+            <p style={{fontFamily:"Times New Roman", fontStyle:"italic"}} onClick={this.onPasswordResetClick}>Forgot Password?</p>
             </div>
 
 
