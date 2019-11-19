@@ -14,11 +14,12 @@ class signin extends React.Component {
     }
 
     onPasswordChange = (event) => {
+        console.log('PW chainging..: ', event.target.value)
         this.setState({signinPassword : event.target.value})
     }
 
     onSubmitSigin = () => {
-           if(this.state.signinEmail.length>0 &&  this.state.signinPassword >0){
+           if(this.state.signinEmail.length>0 &&  this.state.signinPassword.length >0){
             fetch('/signin', {
                 method:'post',
                 headers:{'content-Type': 'application/json'},
@@ -29,7 +30,8 @@ class signin extends React.Component {
             })
             .then(response => 
                 
-                {if(!(response.status === 400)){
+                {console.log(response)
+                    if(!(response.status === 400)){
                     console.log('RESPONSE: ', response)
                     response.json()
                     .then(user=>{  
@@ -56,6 +58,8 @@ class signin extends React.Component {
                 )
            }
            else{
+               console.log('FIELDS: ', this.state.signinEmail.length>0, " && ",  this.state.signinPassword.length >0)
+               
             this.setState({ErrorDisplay:'inline'})
            }
                
