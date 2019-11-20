@@ -76,7 +76,8 @@ class StartnewStudy extends React.Component{
                     <label>How long a study do you want to conduct</label>
                     <select style={{margin:"10px"}} onChange={this.onDurationSelection}>
                         <option value="">--select--</option>
-                        <option value="15">15 Days</option>
+                        <option value="5">4 Days</option>
+                        <option value="15">14 Days</option>
                         <option value="30">30 Days</option>
                         <option value="45">45 Days</option>
                         <option value="60">60 Days</option>
