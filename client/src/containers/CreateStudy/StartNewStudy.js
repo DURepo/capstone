@@ -90,7 +90,7 @@ class StartnewStudy extends React.Component{
                 return (
                     <div>
                         <h1>Create New Study</h1>
-                        <p>Your Hypthosis is {this.state.studyinput} has impact on {this.state.studyoutput}</p>
+                        <p>Your Hypothesis is {this.state.studyinput} has impact on {this.state.studyoutput}</p>
                         <button  type="submit" className="all" onClick={()=>this.confirmStudysubmit()}>Yes, Start My Study</button>
                         <button  type="cancel" className="all" onClick={()=>this.CancelStudy()}>Cancel, I changed My mind</button>
                         
